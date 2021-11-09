@@ -82,8 +82,8 @@ function controlled_access_terms_tokens($type, $tokens, array $data, array $opti
           break;
 
         case 'agent_creators':
-          // For the Linked agent field, Creators are any relationship value.
-          $replacements[$original] = controlled_access_terms_get_term_with_rel_type($data['node'], 'field_linked_agent', '');
+          // Creator field is the primary one for Penrose Library.
+          $replacements[$original] = controlled_access_terms_get_term_with_rel_type($data['node'], 'field_linked_agent', 'realtor:cre', TRUE);
           break;
 
         case 'agent_publisher':
@@ -92,7 +92,8 @@ function controlled_access_terms_tokens($type, $tokens, array $data, array $opti
           break;
 
         case 'publication_date':
-          $replacements[$original] = controlled_access_terms_normalize_date_format($data['node'], 'field_edtf_date_created', $original);
+        // Penrose Library edtf date field 
+          $replacements[$original] = controlled_access_terms_normalize_date_format($data['node'], 'field_edtf_date', $original);
           break;
       }
     }
