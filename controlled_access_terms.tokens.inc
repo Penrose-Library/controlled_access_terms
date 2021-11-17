@@ -63,6 +63,15 @@ function controlled_access_terms_tokens($type, $tokens, array $data, array $opti
         ]);
       return;
     }
+    $inclusion1 = $data['node']->field_genre->target_id;
+
+    if ( $inclusion1 <> 132) {
+     $replacements['[islandoratokens:agent_creators]'] = NULL;
+     $replacements['[islandoratokens:pdf_url]'] = NULL;
+     $replacements['[islandoratokens:title]'] = NULL;
+     $replacements['[islandoratokens:publication_date]'] = NULL;
+     return $replacements;
+    }
     foreach ($tokens as $name => $original) {
       switch ($name) {
         case 'title':
