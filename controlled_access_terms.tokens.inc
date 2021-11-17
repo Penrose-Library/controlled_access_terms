@@ -92,7 +92,7 @@ function controlled_access_terms_tokens($type, $tokens, array $data, array $opti
 
         case 'agent_creators':
           // Creator field is the primary one for Penrose Library.
-          $replacements[$original] = controlled_access_terms_get_term_with_rel_type($data['node'], 'field_linked_agent', 'realtor:cre', TRUE);
+          $replacements[$original] = controlled_access_terms_get_term_with_rel_type($data['node'], 'field_linked_agent', 'relators:cre', TRUE);
           break;
 
         case 'agent_publisher':
